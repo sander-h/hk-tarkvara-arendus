@@ -22,3 +22,8 @@ sX = "string \"abc\""
 sY = "see on \\ jagamismark"
 
 sZ = '-' * 20
+sX[-5:] # viimased 5
+sX[2:] # teisest l6ppu
+sX[0:30:2] # yle teise
+sX[30:0:-1] # loeb tagurpidi
+sX[::-1] # k6ik tagurpidi
