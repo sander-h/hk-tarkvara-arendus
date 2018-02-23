@@ -51,3 +51,27 @@ list2Min = min(list2) #miinimum v22rtus listis
 list3Count3 = list3.count(3) #loeb 3med
 list3Sorted = sorted(list3) #loob uue sorditud listi
 list3.sort() #sordib vana listi
+
+
+# dictionary
+aInimesed = ['Mati', 23, 'Karl', 20, 'Triin', 19] #array
+dInimesed = {'Mati': 23, 'Karl': 20, 'Triin': 19} #dictionary
+# dInimesed.keys() # tagastab v6tmed
+# dInimesed.values() # tagastab v22rtused
+
+mati = aInimesed[1]
+mati2 = dInimesed['Mati']
+
+# tuple, teineteisega seotud asjad
+dup = (2,3.5,'Mati') #kogumik mida ei saa muuta (funktsioonides)
+dupMult = dup*4
+
+# set, ainult unikaalsed v22rtused
+hulk = set() #tyhi set
+hulk = {'6unad',"6unad".'pirnid','kirsid'} #pole v6tmed, ainult v22rtused
+a = set('abracadabra') #ainult unikaalsed t2hed
+b = set('KabrDakgu')
+c = a - b #hulkade vahe
+d = a | b #asjad mis on kas yhes v6i teises
+e = a & b #asjad mis on m6lemas
+f = a ^ b #xor, asi mis yhes v6i teises, kuid mitte m6lemas
