@@ -184,12 +184,13 @@ def listPrimes(max_num = 100):
 
 listPrimes()
 
+#liida arre
 def arrLiida(arr = [0]):
     sum = 0
     for i in arr:
         sum += i
     return sum
-
+#keskmine arre
 def arrKeskmine(arr = [0]):
     sum = arrLiida(arr)
     return (sum/(len(arr)))
@@ -197,6 +198,7 @@ def arrKeskmine(arr = [0]):
 arrKeskmine([1,2,3,4])
 
 
+#keskmine tunnis
 def keskmine(a,b,c=None,d=None):
     sum = a+b
     argumente = 2
@@ -208,3 +210,13 @@ def keskmine(a,b,c=None,d=None):
         argumente += 1
         sum += d
     return sum/argumente
+
+
+#t2rn muudab parameetrit listiks
+#t2rn muudab ka listi parameetriteks
+def liitmine(*arr):
+    sum = 0
+    for i in arr:
+        sum += i
+    return sum
+
