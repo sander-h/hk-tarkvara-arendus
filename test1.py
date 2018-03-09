@@ -68,10 +68,84 @@ dupMult = dup*4
 
 # set, ainult unikaalsed v22rtused
 hulk = set() #tyhi set
-hulk = {'6unad',"6unad".'pirnid','kirsid'} #pole v6tmed, ainult v22rtused
+hulk = {'6unad','pirnid','kirsid'} #pole v6tmed, ainult v22rtused
 a = set('abracadabra') #ainult unikaalsed t2hed
 b = set('KabrDakgu')
 c = a - b #hulkade vahe
 d = a | b #asjad mis on kas yhes v6i teises
 e = a & b #asjad mis on m6lemas
 f = a ^ b #xor, asi mis yhes v6i teises, kuid mitte m6lemas
+
+# if
+if 2 < 5:
+    print('abc')
+else:
+    print('def')
+
+x = 2
+if x > 0:
+    print('positiivne')
+elif x == 0:
+    print('null')
+else:
+    print('negatiivne')
+
+
+list = ['element 0','element 1','element 2']
+
+for element in list:
+    print(element)
+
+for i in range(0,101,2):
+    print(i)
+
+x = 0
+while x < 101:
+    x = x + 1
+    if (x % 2 != 0):
+        continue
+    print (x)
+    if (x == 100):
+        break
+    else:
+        pass
+
+
+#mingi muu tsykkel
+for n in range(0,101):
+    if (n % 2 == 0 and n > 2) or n == 1:
+        continue
+    is_prime = True
+    for i in range(3, n):
+        if (n % i == 0):
+            is_prime = False
+            break
+    if (is_prime):
+        print(str(n)+' on algarv')
+
+while True:
+    sisend = input('Sisesta Number, l6petamiseks vajuta ENTER: ')
+    if (len(sisend)== 0):
+        break
+    print('Trykitud: '+ sisend)
+
+
+
+a,b = 0,1
+while b <= 1000:
+    print(b,end = ' ', flush=True)
+    a,b = b,a+b
+
+# tsykkel ja else
+x = 0
+list = [2,5,7,8,10]
+for element in list:
+    x += element
+else: 
+    print(x)
+
+l = 0
+while l < 5:
+    l += 1
+else:
+    print(l)
