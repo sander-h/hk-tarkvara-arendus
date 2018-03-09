@@ -12,9 +12,12 @@ p = 0
 #loop kuni vastus k2es
 print('Arva number:')
 while True:
-    s = input ()
-    i = float(s)
     p += 1
+    s = input ()
+    if (any((i.isdigit()== False) for i in s)):
+        print('Sisendis pole number! Proovi uuesti:')
+        continue
+    i = float(s)
     if i == ran:
         print('Korrektne tulemus: '+ranstr)
         print('Proove kokku: '+str(p)+'')

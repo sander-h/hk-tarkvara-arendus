@@ -149,3 +149,62 @@ while l < 5:
     l += 1
 else:
     print(l)
+
+
+
+#protseduur
+def minu_funktsioon():
+    print('see on protseduur')
+minu_funktsioon()
+
+#functisioon
+def liida(a = 0,b = 0,c = 0,d = 0):
+    return a+b+c+d
+
+def isPrime(n):
+    for i in range(3,n):
+        if (n % i) == 0:
+            return False
+    else:
+        return True
+
+nr = 5
+
+if (isPrime(nr)):
+    print(f"{nr} on prime")
+else:
+    print(f"{nr} ei ole prime")
+
+def listPrimes(max_num = 100):
+    for n in range (2, max_num):
+        if (isPrime(n)):
+            print(n,end = ' ')
+    print()
+
+
+listPrimes()
+
+def arrLiida(arr = [0]):
+    sum = 0
+    for i in arr:
+        sum += i
+    return sum
+
+def arrKeskmine(arr = [0]):
+    sum = arrLiida(arr)
+    return (sum/(len(arr)))
+
+arrKeskmine([1,2,3,4])
+
+
+def keskmine(a,b,c=None,d=None):
+    sum = a+b
+    argumente = 2
+
+    if (c is not None):
+        argumente += 1
+        sum += c
+    if (d is not None):
+        argumente += 1
+        sum += d
+    return sum/argumente
