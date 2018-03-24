@@ -301,8 +301,9 @@ print(arvude_ruudud)
 # klasssid
 
 class dog:
-	def __init__(self, color = "white"):
+	def __init__(self, color = "white",colorTail = "grey"):
 		self.color = color
+		self.colorTail = colorTail
 	
 	def bark(self):
 		print(f"Woof, said {self.color} doggie")
@@ -310,7 +311,10 @@ class dog:
 #dog.color = "orange"
 pontu = dog()
 pontu.bark()
-sally = dog(color = "orange")
+sally = dog(color = "orange",colorTail = "white")
 sally.bark()
 dog.bark(sally)
+
+sally.paws = 4
+print(sally.paws)
 
