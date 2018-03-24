@@ -283,3 +283,34 @@ def func():
 
 func()
 print('V2limine: ',s_a)
+
+
+# lambda
+double = lambda x: x*2
+print(double(5),type(double))	# double on funktsioon
+
+
+# list comperhensions (apply {})
+arvude_ruudud = [x**2 for x in range(10)]
+print(arvude_ruudud)
+
+
+
+
+
+# klasssid
+
+class dog:
+	def __init__(self, color = "white"):
+		self.color = color
+	
+	def bark(self):
+		print(f"Woof, said {self.color} doggie")
+	
+#dog.color = "orange"
+pontu = dog()
+pontu.bark()
+sally = dog(color = "orange")
+sally.bark()
+dog.bark(sally)
+
