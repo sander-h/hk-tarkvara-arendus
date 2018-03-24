@@ -78,145 +78,208 @@ f = a ^ b #xor, asi mis yhes v6i teises, kuid mitte m6lemas
 
 # if
 if 2 < 5:
-    print('abc')
+	print('abc')
 else:
-    print('def')
+	print('def')
 
 x = 2
 if x > 0:
-    print('positiivne')
+	print('positiivne')
 elif x == 0:
-    print('null')
+	print('null')
 else:
-    print('negatiivne')
+	print('negatiivne')
 
 
 list = ['element 0','element 1','element 2']
 
 for element in list:
-    print(element)
+	print(element)
 
 for i in range(0,101,2):
-    print(i)
+	print(i)
 
 x = 0
 while x < 101:
-    x = x + 1
-    if (x % 2 != 0):
-        continue
-    print (x)
-    if (x == 100):
-        break
-    else:
-        pass
+	x = x + 1
+	if (x % 2 != 0):
+		continue
+	print (x)
+	if (x == 100):
+		break
+	else:
+		pass
 
 
 #mingi muu tsykkel
 for n in range(0,101):
-    if (n % 2 == 0 and n > 2) or n == 1:
-        continue
-    is_prime = True
-    for i in range(3, n):
-        if (n % i == 0):
-            is_prime = False
-            break
-    if (is_prime):
-        print(str(n)+' on algarv')
+	if (n % 2 == 0 and n > 2) or n == 1:
+		continue
+	is_prime = True
+	for i in range(3, n):
+		if (n % i == 0):
+			is_prime = False
+			break
+	if (is_prime):
+		print(str(n)+' on algarv')
 
 while True:
-    sisend = input('Sisesta Number, l6petamiseks vajuta ENTER: ')
-    if (len(sisend)== 0):
-        break
-    print('Trykitud: '+ sisend)
+	sisend = input('Sisesta Number, l6petamiseks vajuta ENTER: ')
+	if (len(sisend)== 0):
+		break
+	print('Trykitud: '+ sisend)
 
 
 
 a,b = 0,1
 while b <= 1000:
-    print(b,end = ' ', flush=True)
-    a,b = b,a+b
+	print(b,end = ' ', flush=True)
+	a,b = b,a+b
 
 # tsykkel ja else
 x = 0
 list = [2,5,7,8,10]
 for element in list:
-    x += element
+	x += element
 else: 
-    print(x)
+	print(x)
 
 l = 0
 while l < 5:
-    l += 1
+	l += 1
 else:
-    print(l)
+	print(l)
 
 
 
 #protseduur
 def minu_funktsioon():
-    print('see on protseduur')
+	print('see on protseduur')
 minu_funktsioon()
 
 #functisioon
 def liida(a = 0,b = 0,c = 0,d = 0):
-    return a+b+c+d
+	return a+b+c+d
 
 def isPrime(n):
-    for i in range(3,n):
-        if (n % i) == 0:
-            return False
-    else:
-        return True
+	for i in range(3,n):
+		if (n % i) == 0:
+			return False
+	else:
+		return True
 
 nr = 5
 
 if (isPrime(nr)):
-    print(f"{nr} on prime")
+	print(f"{nr} on prime")
 else:
-    print(f"{nr} ei ole prime")
+	print(f"{nr} ei ole prime")
 
 def listPrimes(max_num = 100):
-    for n in range (2, max_num):
-        if (isPrime(n)):
-            print(n,end = ' ')
-    print()
+	for n in range (2, max_num):
+		if (isPrime(n)):
+			print(n,end = ' ')
+	print()
 
 
 listPrimes()
 
 #liida arre
 def arrLiida(arr = [0]):
-    sum = 0
-    for i in arr:
-        sum += i
-    return sum
+	sum = 0
+	for i in arr:
+		sum += i
+	return sum
 #keskmine arre
 def arrKeskmine(arr = [0]):
-    sum = arrLiida(arr)
-    return (sum/(len(arr)))
+	sum = arrLiida(arr)
+	return (sum/(len(arr)))
 
 arrKeskmine([1,2,3,4])
 
 
 #keskmine tunnis
 def keskmine(a,b,c=None,d=None):
-    sum = a+b
-    argumente = 2
+	sum = a+b
+	argumente = 2
 
-    if (c is not None):
-        argumente += 1
-        sum += c
-    if (d is not None):
-        argumente += 1
-        sum += d
-    return sum/argumente
+	if (c is not None):
+		argumente += 1
+		sum += c
+	if (d is not None):
+		argumente += 1
+		sum += d
+	return sum/argumente
 
 
 #t2rn muudab parameetrit listiks
 #t2rn muudab ka listi parameetriteks
 def liitmine(*arr):
-    sum = 0
-    for i in arr:
-        sum += i
-    return sum
+	sum = 0
+	for i in arr:
+		sum += i
+	return sum
 
+# try / except
+def numcount(*numbrid):
+	sum = numsum(*numbrid)
+	count = numcount(*numbrid)
+	result = 0.0
+
+	try:
+		result = sum/(count*1.0)
+	except ZeroDivisionError as err:
+		print('numcount - nulliga jagamise viga',err)
+		result = 0.0
+	except:
+		print ('mingi muu viga')
+		raise               # kutsub vea uuesti v2lja
+	else:                   # kui viga ei juhtu
+		print("numcount - tulemus {result}")
+	finally:                # igal juhul k2ivitab 
+		print('tehtud')
+
+# failide avamine
+f = open('minufail.txt')
+
+for rida in f:
+	print(rida,end ="")
+f.close()
+
+with open('minufail.txt') as f:
+	for rida in f:
+		print(rida,end="")
+
+# clear console
+print("\n\n\n\n\n\n\n\n\n\n\n\n")
+print('--- clear ---')
+
+
+# import test
+import mymodule
+from mymodule import tere2
+
+mymodule.tere()
+tere2()
+
+# kaustast import
+import f.functions
+f.functions.tere3()
+#print(dir(f))
+
+
+# scope
+s_a = 2
+
+def func():
+	s_a = 11
+	def func2():
+		#nonlocal s_a
+		s_a = 10
+		print('func2:',s_a)
+	
+	func2()
+	print("func:",s_a)
+
+func()
+print('V2limine: ',s_a)
