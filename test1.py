@@ -318,3 +318,32 @@ dog.bark(sally)
 sally.paws = 4
 print(sally.paws)
 
+
+# polymorfism
+
+from abc import ABCMeta, abstractmethod
+class kujund(metaclass = ABCMeta):
+	@abstractmethod
+	def tutvusta(self):
+		pass
+		print("Ma ei tea kes ma olen")
+
+class ruut(kujund):
+	def tutvusta(self):
+		print("Ma olen ruut")
+
+class ring(kujund):
+	def tutvusta(self):
+		print("Ma olen ring")
+
+class kolmnurk(kujund):
+	def tutvusta(self):
+		print("Ma olen kolmnurk")
+
+def tutvusta(*kujundid):
+	for kujund in kujundid:
+		kujund.tutvusta()
+
+list = (kolmnurk(), ruut(), ring())
+
+tutvusta(*list)
