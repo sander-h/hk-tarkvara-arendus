@@ -1,5 +1,10 @@
+
 #print current trips
-def f_printList(list=3*[3*["-"]]):
+def f_printList(list=3*[3*["-"]],clear=False):
+    if clear:    
+        for i in range(0,30):
+            print("")
+
     #x koordinaadid
     mainList = [['1','2','3','<-X TELG']]
     mainList = mainList + list
@@ -15,7 +20,14 @@ def f_printList(list=3*[3*["-"]]):
 def f_getPlayerInput(hint="Sisesta Number (1/2/3)",hintError="Vigane Number v6i number ei sobi, proovi uuesti",range=[1,2,3]):
     while True:
         print(hint)
-        i = int(input())
+        i = input()
+        
+        # player quit check
+        if not bool(i) or i is "":
+            return False
+
+        # check if pos is in allowed range
+        i = int(i)
         if (i in range):
             return i
         else:
@@ -28,6 +40,11 @@ def f_canUpdateList(list,xPos=1,yPos=1):
 
 # returns new list with updated value for certain square
 def f_updateList(list,posList=[1,1],newVal='-'):
+
+    # player exit check
+    if posList is False:
+        return False
+
     xPos = posList[0]
     yPos = posList[1]
     list[yPos-1][xPos-1] = newVal
@@ -38,7 +55,17 @@ def f_getPlayerPos(list,player="x"):
     while True:
         f_printList(list)
         xPos = f_getPlayerInput(hint=player+', vali positsioon x teljel')
+
+        # player exit check
+        if xPos is False:
+            return False
+
         yPos = f_getPlayerInput(hint=player+', vali positsioon y teljel')
+
+        # player exit check
+        if yPos is False:
+            return False
+
         if f_canUpdateList(list,xPos,yPos):
             return [xPos,yPos]
         else:
@@ -95,17 +122,26 @@ def f_play():
     print("Trips Traps Trull")
     print("Saa 3 x v6i 3 o j2rjestikku et v6ita")
     print("Kui k6ik ruudud on t2is, siis on viik")
-    f_printList(tripsList)
+    print("2ra sisesta midagi ja vajuta enter et m2ngu l6petada")
+    #f_printList(tripsList,False)
     player = 'x'
     plays = 0
     while True:
         plays += 1
         tripsList = f_updateList(tripsList,f_getPlayerPos(tripsList,player),player)
-        f_printList(tripsList)
+
+        # player exit check
+        if tripsList is False:
+            print(f'{player} l6petas m2ngu.')
+            break
+
+        #f_printList(tripsList)
         winner = f_checkWin(tripsList)
         if winner != None:
+            f_printList(tripsList,True)
             end = f'{winner} on v6itja'
         elif plays == 9:
+            f_printList(tripsList,True)
             end = 'viik'
         if player == 'x':
             player = 'o'
